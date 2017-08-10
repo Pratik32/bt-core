@@ -1,5 +1,7 @@
 package bencodeutils;
 
+import exceptions.InvalidTorrentFileException;
+
 import java.io.EOFException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -95,9 +97,11 @@ public class BencodeDecoder {
         current_byte=getNextByte();
         try {
             if (current_byte < '0' || current_byte > '9') {
+                throw new InvalidTorrentFileException();
             }
-        }catch (Exception e){
+        }catch (InvalidTorrentFileException e){
             System.out.println("Expected string length as integer found : "+current_byte);
+            e.printMessage();
         }
         int strlen=current_byte-'0';
         int curr=current_byte-'0';

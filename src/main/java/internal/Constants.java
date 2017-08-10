@@ -74,4 +74,6 @@ public class Constants {
     public static final int UDP_PACKET_LENGTH=512;
     public static final int UDP_ANNOUNCE_MESSAGE_LEN=98;
 
+    public static final String DEFAULT_DOWNLOAD_DIR=".";
+
 }
